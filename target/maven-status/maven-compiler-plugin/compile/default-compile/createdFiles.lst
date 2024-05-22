@@ -1,0 +1,4 @@
+com\mycompany\earlybirdwebserver\Earlybirdwebserver.class
+webserver\WebServerUI.class
+webserver\HttpRequestHandler.class
+webserver\WebServer.class
