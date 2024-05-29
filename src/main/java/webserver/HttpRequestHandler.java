@@ -148,8 +148,18 @@ public class HttpRequestHandler extends Thread {
         // Mendapatkan daftar file dalam direktori yang diberikan
         File[] files = directory.listFiles();
         // Membangun respons HTML untuk menampilkan daftar file
-        StringBuilder responseBuilder = new StringBuilder("<html><body><h1>Directory Listing</h1>");
+        
+        StringBuilder responseBuilder = new StringBuilder("<html><head>");
 
+        // Menambahkan style untuk background image dengan URL eksternal
+       responseBuilder.append("<style>");
+    responseBuilder.append("body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; ");
+    responseBuilder.append("background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/98/Logo_udinus1.jpg'); ");
+    responseBuilder.append("background-size: 30%; background-repeat: no-repeat; background-position: center; opacity: 0.5; z-index: -1; }");
+    responseBuilder.append("</style>");
+
+    responseBuilder.append("</head><body><h1>Directory Listing</h1>");
+        
         // Menambahkan tombol "Back" jika tidak berada di direktori root
         if (parentDirectory != null) {
             responseBuilder.append("<button onclick=\"goBack()\">Back</button><br>");

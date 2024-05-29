@@ -71,6 +71,7 @@ public class WebServerUI extends Application {
         browseButton.setOnAction(e -> browseFilePath(primaryStage));
         grid.addRow(0, pathLabel, filePathField, browseButton);
 
+        //itu buat ngambil nilai port nya, 8000 mungkin nilai default jika blm pernah isi inputannya
         Label logsPathLabel = new Label("Logs Path :");
         logsPathField = new TextField(preferences.get("logsPath", "D:\\Web\\logs"));
         logsPathField.setPrefWidth(200);
@@ -107,7 +108,7 @@ public class WebServerUI extends Application {
         logArea.setStyle("-fx-font-family: 'Courier New'; -fx-font-size: 12px; -fx-background-color: #e3f2fd; -fx-text-fill: #01579b;");
         logArea.setWrapText(true);
 
-        VBox logBox = new VBox(10, new Label("Server Logs:"), logArea);
+        VBox logBox = new VBox(10, new Label("Server Logs :"), logArea);
         logBox.setPadding(new Insets(10));
         logBox.setStyle("-fx-background-color: #ffffff; -fx-border-color: #81d4fa; -fx-border-width: 1px; -fx-border-radius: 5px; -fx-background-radius: 5px;");
         logBox.setPrefHeight(200);
@@ -148,6 +149,7 @@ public class WebServerUI extends Application {
         String logsPath = logsPathField.getText();
         int port = Integer.parseInt(portField.getText());
 
+        //untuk menampilkan nilai port terakhir yg tersimpan kemudian akan dijalankan ketika server distart
         preferences.put("filePath", filePath);
         preferences.put("logsPath", logsPath);
         preferences.put("port", String.valueOf(port));
